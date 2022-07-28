@@ -61,14 +61,16 @@ router.put("/:id", async (req, res) => {
 });
 
 // Deletar cursos
-router.delete("/id:", async (req, res) => {
-  const id = req.params.id;
-  try {
-    await cursoService.deleteCurso(id);
-    res.status(201).send("Curso deletado com sucesso!");
-  } catch (error) {
-    res.status(400).send(error.message);
+router.delete("/:id",
+  async (req, res) => {
+    const id = req.params.id;
+    try {
+      await cursoService.deletaCurso(id);
+      res.status(201).send("Curso deletado com sucesso!");
+    } catch (error) {
+      res.status(400).send(error.mensage);
+    }
   }
-});
+);
 
 module.exports = router;
